@@ -1,4 +1,6 @@
-﻿using System.Reflection;
+﻿using System.ComponentModel.Design;
+using System.Reflection;
+using System.Reflection.Metadata;
 
 namespace HometaskOverloadingMethod;
 
@@ -32,11 +34,25 @@ internal class Program
 
         #region Task3
 
-        Console.WriteLine("Verilmish 3 reqemli ededin reqemleri hasili nechedir?");
-        Console.WriteLine("3 reqemli eded daxil edin:");
-        int a=Convert.ToInt32(Console.ReadLine());
-        Console.WriteLine("Cavab: "+multOfDigits(a));
+        //Console.WriteLine("Verilmish 3 reqemli ededin reqemleri hasili nechedir?");
+        //Console.WriteLine("3 reqemli eded daxil edin:");
+        //int a=Convert.ToInt32(Console.ReadLine());
+        //Console.WriteLine("Cavab: "+multOfDigits(a));
 
+        #endregion
+
+        #region Task4
+
+        //Console.WriteLine("Aksiya: 3 mehsul alana en ucuzu pulsuz");
+        //Console.WriteLine("========================================");
+        //Console.WriteLine("Birinci mehsulun deyerini daxil edin:");
+        //double a = Convert.ToDouble(Console.ReadLine());
+        //Console.WriteLine("Ikinci mehsulun deyerini daxil edin:");
+        //double b = Convert.ToDouble(Console.ReadLine());
+        //Console.WriteLine("Ucuncu mehsulun deyerini daxil edin");
+        //double c = Convert.ToDouble(Console.ReadLine());
+        //Console.WriteLine("Odeyeceyiniz mebleg: "+cheapestIsFree(a,b,c));
+        
         #endregion
 
     }
@@ -122,7 +138,30 @@ internal class Program
        return firstDigit*secondDigit*thirdDigit;
     }
 
+    static double cheapestIsFree(double a, double b, double c)
+    {
+        double result = 0;
 
+        if (a > b)
+        {
+            if (a > c)
+                result += a;
+            else
+                return a + c;
+        }
+        if (a < b)
+        {
+            if (a < c)
+                return c + b;
+            else
+                return a + b;
+        }
+        if (b > c)
+            result += b;
+        else
+            result += c;
+        return result;
+    }
 
 
 
